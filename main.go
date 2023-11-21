@@ -14,7 +14,8 @@ import (
 func main() {
 	// Load environment variables
 	err := godotenv.Load()
-	if err != nil {
+	isProd := os.Getenv("PROD_ENV")
+	if isProd == "false" && err != nil {
 		log.Fatal("Error loading environment variables")
 	}
 
